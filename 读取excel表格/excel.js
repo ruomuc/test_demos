@@ -22,11 +22,11 @@ if (wsfi.data[0] != null) {
     //先循环标题，键
     var len2 = wsfi.data;
 
-    var obj = {};
     var len4 = wsfi.data.length;
     console.log('len4', len4);
     for (let k = 0; k < len4; ++k) {
         if (k != 0) {//第一个数组已经被当做键了
+            var obj = {};
             var wsfk = wsfi.data[k];
             var len5 = wsfk.length;
             console.log('len5', len5);
