@@ -1,0 +1,39 @@
+<%- include('header') -%>
+
+<% if (ctx.flash.success || ctx.flash.warning){ %>
+
+<% }else{ %>
+
+<div class="panel panel-default signup">
+    <div class="panel-body">
+
+        <form action="/signup" method="POST" role="form">
+            <legend></legend>
+
+            <div class="form-group">
+                <label for="">用户名</label>
+                <input type="text" class="form-control" name='name' id="" placeholder="请输入用户名">
+            </div>
+            <div class="form-group">
+                <label for="">邮箱</label>
+                <input type="email" class="form-control" name='email' id="" placeholder="请输入邮箱">
+            </div>
+            <div class="form-group">
+                <label for="">密码</label>
+                <input type="password" class="form-control" name='password' id="" placeholder="请输入密码">
+            </div>
+            <div class="form-group">
+                <label for="">确认密码</label>
+                <input type="password" class="form-control" name='repassword' id="" placeholder="请确认密码">
+            </div>
+            <div class="form-group">
+                <a href="/signin"> 已经注册,点击登录>> </a>
+            </div>
+            <button type="reset" class="btn btn-primary">重置</button>
+            <button type="submit" class="btn btn-primary" style="margin-left:200px">确定</button>
+        </form>
+    </div>
+</div>
+<% } %>
+
+<%- include('footer') -%>
