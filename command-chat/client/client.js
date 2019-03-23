@@ -2,8 +2,8 @@ const io = require('socket.io-client');
 const cout = process.stdout;
 const cin = process.stdin;
 
-const IP = '127.0.0.1';
-const PORT = 3333;
+const IP = '66.42.74.169';
+const PORT = 81;
 var socket = null;
 
 socket = io(`http://${IP}:${PORT}`);
