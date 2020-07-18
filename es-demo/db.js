@@ -1,10 +1,10 @@
 const knex = require('knex')({
   client: 'mysql',
   connection: {
-    host: '192.168.110.144',
+    host: 'xxxxxxxx',
     port: '3306',
-    user: 'root',
-    password: 'romens',
+    user: 'xxxxx',
+    password: 'xxxxx',
     supportBigNumbers: 20,
     bigNumberStrings: 20,
     multipleStatements: true,
