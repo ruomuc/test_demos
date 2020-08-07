@@ -1,0 +1,29 @@
+{
+  "name": "process-excel",
+  "version": "1.0.0",
+  "description": "a simple program for deal with excel, by electron.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron index.js",
+    "debug": "electron --inspect=3333 index.js",
+    "package": "electron-builder --win --x64"
+  },
+  "build": {
+    "win": {
+      "target": [
+        "zip"
+      ]
+    }
+  },
+  "author": "ruomu",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.19",
+    "xlsx": "^0.16.5"
+  },
+  "devDependencies": {
+    "electron-builder": "^22.8.0",
+    "electron": "^9.1.2"
+  }
+}

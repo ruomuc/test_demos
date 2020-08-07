@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>excel处理程序</title>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+</head>
+<style>
+  .main-window {
+    margin: auto;
+    color: black;
+    width: 80%;
+    height: 50%;
+    margin-top: 10%;
+  }
+</style>
+
+<body>
+  <div class="main-window">
+    <div id="fields">
+      <div>
+        <label>筛选条件字段：</label>
+        <input type="text" required>
+        <select id="operationSelect">
+          <option value=">">大于</option>
+          <option value="<">小于</option>
+          <option value="=">等于</option>
+          <option value=">=">大于等于</option>
+          <option value="<=">小于等于</option>
+          <option value="!=">不等于</option>
+        </select>
+        <input type="text" required>
+      </div>
+    </div>
+    <div>
+      <button type="button" onclick="addField()">添加字段</button>
+    </div>
+    <!-- <div>
+      <label>筛选条件关系：</label>
+      <select id="logicSelect">
+        <option value="and">与(交集)</option>
+        <option value="or">或(并集)</option>
+      </select>
+    </div> -->
+    <div>
+      <label>新文件名称</label>
+      <input type="text" id="fileName" placeholder="请输入要生成的文件名成" required>
+    </div>
+    <div>
+      <input type="file" id="targetFile" required>
+    </div>
+    <div>
+      <button type="button" onclick="confirm()">点击确认生成excel</button>
+      <button type="button" onclick="clearAll()">清空所有字段</button>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  const excelProcess = require('./resource/excel.js')
+  window.$ = require('./resource/jsQuery3.5.1.js')
+  function confirm() {
+    const fieldData = [];
+    const sourceFile = $('#targetFile')[0].files[0].name;
+    const targetName = $('#fileName').val();
+    // const logic = $('#logicSelect option:selected').val();
+    const fieldsElements = $('#fields').children();
+    for (let index = 0; index < fieldsElements.length; index++) {
+      const element = fieldsElements[index];
+      const obj = {
+        name: $(element).children()[1].value,
+        operation: $(element).children()[2].value,
+        value: $(element).children()[3].value
+      }
+      fieldData.push(obj);
+    }
+    if (!sourceFile || !targetName || !fieldData[0].name || !fieldData[0].value) {
+      alert('必要参数没有填写~请仔细检查~');
+      return;
+    }
+    // 调用处理方法
+    excelProcess.processExcel(fieldData, sourceFile, targetName)
+      .then(result => {
+        console.log('finish process')
+      })
+      .catch(err => {
+
+      })
+  }
+
+  // 清空所有字段
+  function clearAll() {
+    // 清空子元素
+    $('#fields').empty();
+
+    // 再加一个默认的字段1
+    $('#fields').append(`<div>
+        <label for="name">筛选条件字段：</label>
+        <input type="text" required>
+        <select>
+          <option value=">">大于</option>
+          <option value="<">小于</option>
+          <option value="=">等于</option>
+          <option value=">=">大于等于</option>
+          <option value="<=">小于等于</option>
+          <option value="!=">不等于</option>
+        </select>
+        <input type="text" required>
+      </div>`)
+  }
+
+  // 添加一个字段
+  function addField() {
+    $('#fields').append(`<div>
+        <label for="name">筛选条件字段：</label>
+        <input type="text" required>
+        <select>
+          <option value=">">大于</option>
+          <option value="<">小于</option>
+          <option value="=">等于</option>
+          <option value=">=">大于等于</option>
+          <option value="<=">小于等于</option>
+          <option value="!=">不等于</option>
+        </select>
+        <input type="text" required>
+      </div>`)
+  }
+</script>
+
+</html>
