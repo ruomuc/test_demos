@@ -1,4 +1,4 @@
-大杂烩
+## 一些demo和练习的大杂烩
 
 [一个基于socket.io的命令行聊天室](./command-chat)
 
