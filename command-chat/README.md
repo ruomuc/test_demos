@@ -23,5 +23,5 @@ emm....
 
 演示图：
 
-![](http://qiniu.blog.seeln.com/6B9CF70F-BCD8-4DAE-8F95-0113E3A1F1F0.png)
+![](./resource/6B9CF70F-BCD8-4DAE-8F95-0113E3A1F1F0.png)
 
