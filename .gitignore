@@ -5,3 +5,5 @@
 process-excel/build
 
 process-excel/dist
+
+**/go-test/go-test
