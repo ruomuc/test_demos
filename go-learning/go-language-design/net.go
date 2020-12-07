@@ -1,4 +1,4 @@
-// package main
+package main
 
 // func main() {
 // 	for _, url := range os.Args[1:] {
