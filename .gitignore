@@ -1,9 +1,11 @@
 **/node_modules/
-
-**/.vscode/
-
+s**/.vscode/
 **/.idea/
 
 process-excel/build
-
 process-excel/dist
+
+gin-blog/conf/app.ini
+gin-blog/conf/app.yaml
+gin-blog/runtime/logs
+gin-blog/runtime/upload
