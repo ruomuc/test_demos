@@ -42,11 +42,12 @@ func (c *GobCodec) Write(h *Header, body interface{}) (err error) {
 		}
 	}()
 
+	// 先发送 header
 	if err = c.enc.Encode(h); err != nil {
 		log.Println("rpc codec: gob error encoding header:", err)
 		return err
 	}
-
+	// 再发送body
 	if err = c.enc.Encode(body); err != nil {
 		log.Println("rpc codec: gob error encoding body:", err)
 		return err

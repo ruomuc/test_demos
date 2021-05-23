@@ -10,6 +10,8 @@ import (
 	"time"
 )
 
+// 启动服务
+// 并且通过信道 addr<- string 返回服务监听的地址
 func startServer(addr chan<- string) {
 	l, err := net.Listen("tcp", ":0")
 	if err != nil {

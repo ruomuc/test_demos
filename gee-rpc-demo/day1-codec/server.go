@@ -37,6 +37,7 @@ func NewServer() *Server {
 var DefaultServer = NewServer()
 
 func (server *Server) Accept(lis net.Listener) {
+	// 等待连接
 	for {
 		conn, err := lis.Accept()
 		if err != nil {
@@ -75,6 +76,7 @@ func (server *Server) serverCodec(cc codec.Codec) {
 	sending := new(sync.Mutex)
 	wg := new(sync.WaitGroup)
 	for {
+		// 获取请求的内容
 		req, err := server.readRequest(cc)
 		if err != nil {
 			if req == nil {
