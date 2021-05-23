@@ -48,7 +48,7 @@ func (server *Server) Accept(lis net.Listener) {
 	}
 }
 
-func (server *Server) ServerConn(conn io.ReadWriteCloser) {
+func (server *Server) ServerConn(conn net.Conn) {
 	defer func() { _ = conn.Close() }()
 
 	var opt Option
