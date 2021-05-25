@@ -1,5 +1,5 @@
 **/node_modules/
-s**/.vscode/
+**/.vscode/
 **/.idea/
 
 process-excel/build
