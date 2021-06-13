@@ -23,6 +23,8 @@ function insertSort (nums, order) {
   return nums
 }
 
-const arr = [2, 1, 90, 29, 32, 17, 51, 100, 99, 3, 9, 8, 6, 2]
+// const arr = [2, 1, 90, 29, 32, 17, 51, 100, 99, 3, 9, 8, 6, 2]
+const arr = [1,2,3,4,5,6]
+
 console.log(insertSort(arr, 'ASC'))
 console.log(insertSort(arr, 'DESC'))
